@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function listUser(){
+    public function listUser(User $user){
         // $user = new User();
         // $user->name = 'Everson';
         // $user->email = 'everson@teste.br';
@@ -19,6 +19,7 @@ class UserController extends Controller
         $user = User::where('id','=', 1)->first();
         return view('listUsers', [
             'user'=>$user
-        ]);
+        ]);        
     }
+
 }
