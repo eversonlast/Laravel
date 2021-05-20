@@ -15,23 +15,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['namespace'=>'Form'], function(){
+// Route::group(['namespace'=>'Form'], function(){
 
-    //Route::get('/listagensUsuarios', 'UserController@listUser');
+//     //Route::get('/listagensUsuarios', 'UserController@listUser');
     
-    Route::get('/usuarios', 'UserController@listAllUsers')->name('users.listaAll');
-    Route::get('/usuarios/novo', 'UserController@formAddUser')->name('users.formAddUser');
-    Route::get('/usuarios/{user}', 'UserController@listUser')->name('users.list');
-});
+//     Route::get('/usuarios', 'UserController@listAllUsers')->name('users.listaAll');
+//     Route::get('/usuarios/novo', 'UserController@formAddUser')->name('users.formAddUser');
+//     Route::get('/usuarios/{user}', 'UserController@listUser')->name('users.list');
+// });
 
 
-//Verbo post 
-Route::post("/usuarios/store", 'Form\UserController@storeUser')->name('user.store');
+// //Verbo post 
+// Route::post("/usuarios/store", 'Form\UserController@storeUser')->name('user.store');
 
 
-//Verbo put
-Route::get('/usuarios/editar/{user}', 'Form\UserController@formEditUser')->name('users.formEditUser');
-Route::put('/usuarios/edit/{user}', 'Form\UserController@editUser')->name('user.edit');
+// //Verbo put
+// Route::get('/usuarios/editar/{user}', 'Form\UserController@formEditUser')->name('users.formEditUser');
+// Route::put('/usuarios/edit/{user}', 'Form\UserController@editUser')->name('user.edit');
 
-//Delete 
-Route::delete('/usuarios/destroy/{user}', 'Form\UserController@destroyUser')->name('user.destroy');
+// //Delete 
+// Route::delete('/usuarios/destroy/{user}', 'Form\UserController@destroyUser')->name('user.destroy');
+
+
+Route::resource('/usuarios', 'Form\\TestController')
+    ->names('user')->parameters(['usuarios'=>'user']);

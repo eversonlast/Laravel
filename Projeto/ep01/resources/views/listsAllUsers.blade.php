@@ -18,9 +18,9 @@
         <tr>
             <td>{{$user->id}}</td>
             <td>{{$user->name}}</td>
-            <td><{{$user->email}}/td>
+            <td>{{$user->email}}</td>
             <td>
-                <a href="">Ver Usuario</a>
+                <a href="{{route('user.show', ['user'=>$user->id])}}">Ver Usuario</a>
                 <form action="{{route('user.destroy', ['user'=> $user->id])}}" method="post">
                     @csrf
                     @method('DELETE')
