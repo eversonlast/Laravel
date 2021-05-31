@@ -47,7 +47,7 @@
         z-index: 2;
     }
 
-    .form-signin input[type="email"]{
+    .form-signin input[type="text"]{
         margin-bottom: -1px;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
@@ -59,17 +59,29 @@
         border-top-right-radius: 0;
     }
 
+    .form-signin button{
+        width: 100%
+    }
+
     img{
-        max-width: 100%;
+        max-width: 80%;
         margin-bottom: 30px;
+    }
+
+    .divImg{
+        display:flex;
+        max-width: 100%;
+        align-items: center;
+        justify-content: center
     }
 </style>
 </head>
 <body>
     <form  class="form-signin" method="POST" action="{{ route('admin.login.do') }}">
         @csrf
-
-        <img src="" alt="">
+        <div class="divImg">
+            <img src="\img\logo_UNITAU_cor.png" alt="">
+        </div>
 
         @if($errors->all())
             @foreach($errors->all() as $error)
@@ -79,12 +91,12 @@
             @endforeach
         @endif
 
-        <label for="email" class="sr-only">Endereço de email</label>
+        {{-- <label for="email" class="sr-only">Endereço de email</label> --}}
         <input type="text" name="email" class="form-control" id="email" placeholder="Seu email"
         required>
 
 
-        <label for="password" class="sr-only">Senha:</label>
+        {{-- <label for="password" class="sr-only">Senha:</label> --}}
         <input type="password" name="password" class="form-control" placeholder="Senha"
         required>
 
