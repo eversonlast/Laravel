@@ -12,13 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('site.master.tela');
-});
-
-Route::get('/teste', function(){
-    return view('layouts.app');
-});
-
-Route::get('/painel', function () {
-    return view('admin.home');
+    return view('cabecalho');
 });
